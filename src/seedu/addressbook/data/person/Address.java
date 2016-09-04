@@ -6,8 +6,8 @@ import seedu.addressbook.data.exception.IllegalValueException;
  * Represents a Person's address in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
  */
-public class Address {
 
+public class Address {
     public static final String EXAMPLE = "123, some street";
     public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses must be of the format:"
     		+ "Block, Street, Unit, Postal Code";
@@ -20,11 +20,11 @@ public class Address {
 
     public final String value;
     private boolean isPrivate;
-    private String block;
-    private String street;
-    private String unit;
-    private String postalCode; 
-
+    private Block block; 
+    private Street street; 
+    private Unit unit; 
+    private PostalCode postalCode; 
+    
     /**
      * Validates given address.
      *
@@ -37,10 +37,20 @@ public class Address {
         }
         this.value = address;
         String[] temp = address.split(COMMA_SPLIT);
-        this.block = temp[BLOCK_INDEX];
-        this.street = temp[STREET_INDEX];
-        this.unit = temp[UNIT_INDEX];
-        this.postalCode = temp[POSTAL_CODE_INDEX];
+        block = new Block(temp[BLOCK_INDEX]);
+        street = new Street(temp[STREET_INDEX]);
+        unit = new Unit(temp[UNIT_INDEX]);
+        postalCode = new PostalCode(temp[POSTAL_CODE_INDEX]);
+    }
+
+    private Street Street(String string) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    private Block Block(String string) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
     /**
@@ -50,24 +60,6 @@ public class Address {
         return test.matches(ADDRESS_VALIDATION_REGEX);
     }
     
-    /** Accessors */
-    private String getBlock(){
-    	return block;
-    }
-    
-    private String getStreet(){
-    	return street;
-    }
-    
-    private String getUnit(){
-    	return unit;
-    }
-    
-    private String getPostalCode(){
-    	return postalCode;
-    }
-
-
     @Override
     public String toString() {
         return value;
@@ -88,4 +80,107 @@ public class Address {
     public boolean isPrivate() {
         return isPrivate;
     }
+    
+    public class Block {
+
+        private String value; 
+
+        public Block(String value) {
+            this.value = value; 
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+
+        @Override
+        public boolean equals(Object other) {
+            return other == this // short circuit if same object
+                    || (other instanceof Block // instanceof handles nulls
+                            && this.value.equals(((Block) other).value)); // state check
+        }
+        
+        public String getValue(){
+            return value;
+        }
+
+    }
+    
+    public class Street {
+        
+        private String value; 
+
+        public Street(String value) {
+            this.value = value; 
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+
+        @Override
+        public boolean equals(Object other) {
+            return other == this // short circuit if same object
+                    || (other instanceof Street// instanceof handles nulls
+                    && this.value.equals(((Street) other).value)); // state check
+        }
+        
+        public String getValue(){
+            return value;
+        }
+    }
+        
+    public class Unit {
+
+        private String value; 
+
+        public Unit(String value) {
+            this.value = value; 
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+
+        @Override
+        public boolean equals(Object other) {
+            return other == this // short circuit if same object
+                    || (other instanceof Unit // instanceof handles nulls
+                            && this.value.equals(((Unit) other).value)); // state check
+        }
+        
+        public String getValue(){
+            return value;
+        }
+    }
+    
+    public class PostalCode {
+
+        private String value; 
+
+        public PostalCode(String value) {
+            this.value = value; 
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+
+        @Override
+        public boolean equals(Object other) {
+            return other == this // short circuit if same object
+                    || (other instanceof PostalCode // instanceof handles nulls
+                    && this.value.equals(((PostalCode) other).value)); // state check
+        }
+        
+        public String getValue(){
+            return value;
+        }
+    }
 }
+
+
