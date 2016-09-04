@@ -5,6 +5,7 @@ import static seedu.addressbook.common.Messages.*;
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.common.Utils;
 import seedu.addressbook.data.person.ReadOnlyPerson;
+import seedu.addressbook.ui.FormatApplier;  
 
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -18,14 +19,6 @@ import java.util.Scanner;
  */
 public class TextUi {
 
-    /** A decorative prefix added to the beginning of lines printed by AddressBook */
-    private static final String LINE_PREFIX = "|| ";
-
-    /** A platform independent line separator. */
-    private static final String LS = System.lineSeparator();
-
-    private static final String DIVIDER = "===================================================";
-
     /** Format of indexed list item */
     private static final String MESSAGE_INDEXED_LIST_ITEM = "\t%1$d. %2$s";
 
@@ -38,6 +31,7 @@ public class TextUi {
 
     private final Scanner in;
     private final PrintStream out;
+    private final FormatApplier formatter = new FormatApplier();
 
     public TextUi(){
         this(System.in, System.out);
