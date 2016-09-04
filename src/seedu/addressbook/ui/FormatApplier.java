@@ -9,4 +9,17 @@ public class FormatApplier {
 
     /** A divider to separate the printed output into different paragraphs nicely. */
     private static final String DIVIDER = "===================================================";
+
+    // Accessors
+    public String getLinePrefix(){
+        return LINE_PREFIX;
+    }
+    
+    public String getLS(){
+        return LS;
+    }
+    
+    public String getDivider(){
+        return DIVIDER;
+    }
 }
