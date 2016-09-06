@@ -4,6 +4,7 @@ import seedu.addressbook.data.exception.IllegalValueException;
 
 /**
  * Represents a Person's address in the address book.
+ * Inherits from the Contact Class
  * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
  */
 public class Address extends Contact {

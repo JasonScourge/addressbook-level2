@@ -11,7 +11,7 @@ public class Contact {
 
     public final String value;
     private boolean isPrivate;
-
+    
     public Contact(String value, boolean isPrivate) throws IllegalValueException {
         this.isPrivate = isPrivate;
         this.value = value;
@@ -34,4 +34,5 @@ public class Contact {
     public boolean isPrivate() {
         return isPrivate;
     }
+
 }
