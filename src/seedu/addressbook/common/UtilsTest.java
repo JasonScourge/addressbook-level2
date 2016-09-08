@@ -5,25 +5,33 @@ import org.junit.Test;
 import java.util.*;
 
 public class UtilsTest {
+
 	@Test
-	public void isAnyNull_noNullArgs() {
-		assertFalse(Utils.isAnyNull(new Object(), new Object(), new Object()));
+	public void testIsNull() {
+		assertTrue(Utils.isAnyNull( (Object) null ));
 	}
 
 	@Test
-	public void isAnyNull_nullArgExists() {
-		assertTrue(Utils.isAnyNull(new Object(), null, new Object()));
+	public void testIsNotNull() {
+		assertFalse(Utils.isAnyNull( new Object() ));
 	}
-	
+
 	@Test
-	public void elementsAreUnique_allUniqueElements() {
-		final List<String> testData = Arrays.asList("Test 1", "Test 2", "Test 3");
-		assertTrue(Utils.elementsAreUnique(testData));
+	public void testIsNotUnique() {
+		ArrayList<Integer> test = new ArrayList<Integer>();
+		for (int i = 0; i < 5; i++){
+			test.add(1);
+		}
+		assertFalse(Utils.elementsAreUnique(test));
 	}
-	
+
 	@Test
-	public void elementsAreUnique_notAllUnique() {
-		final List<String> testData = Arrays.asList("Test 1", "Test 1", "Test 3");
-		assertFalse(Utils.elementsAreUnique(testData));
+	public void testIsUnique() {
+		ArrayList<Integer> test = new ArrayList<Integer>();
+		for (int i = 0; i < 5; i++){
+			test.add(i);
+		}
+		assertFalse(Utils.elementsAreUnique(test));
 	}
+
 }
